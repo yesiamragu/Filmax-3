@@ -1,5 +1,5 @@
 // WhatsApp number (international format without +)
-const whatsappNumber = "918489391945"; // +91 8489391945
+const whatsappNumber = "916382365254"; // +91 6382365254
 
 // Posters data structured by category keys
 const posters = {
