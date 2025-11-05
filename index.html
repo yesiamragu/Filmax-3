@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FILMAX — Cinematic Posters</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/index.css" />
+</head>
+<body> 
+  <!-- NAV -->
+  <nav class="navbar py-3">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a class="d-flex align-items-center gap-2" href="#">
+        <img src="assets/img/logo.svg" alt="FILMAX" class="brand-img"> 
+      </a>
+      <!-- <div id="categoryContainer" class="d-flex flex-wrap align-items-center"></div> -->
+    </div>
+  </nav>
+
+  <!-- CAROUSEL -->
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=2000&q=60')">
+        <div class="carousel-overlay">
+          <div class="container text-white">
+            <div class="row">
+              <div class="col-lg-7">
+                <h2 class="hero-title">Cinematic Posters — Dark & Dramatic</h2>
+                <p class="mb-0">Bring Hollywood vibes home. Matte prints, high contrast, collector's finish.</p>
+              </div>
+              <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
+                <a class="btn btn-accent btn-lg" id="carouselShopBtn" href="#gallery">Shop Posters</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=60')">
+        <div class="carousel-overlay">
+          <div class="container text-white">
+            <div class="row">
+              <div class="col-lg-7">
+                <h2 class="hero-title">Frames & Collections</h2>
+                <p class="mb-0">Curated multi-packs for your living room or gifting moments.</p>
+              </div>
+              <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
+                <a class="btn btn-outline-light btn-lg" id="carouselContactBtn" href="#orderBanner">Order Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image:url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=2000&q=60')">
+        <div class="carousel-overlay">
+          <div class="container text-white">
+            <div class="row">
+              <div class="col-lg-7">
+                <h2 class="hero-title">Limited Edition Drops</h2>
+                <p class="mb-0">Weekly drops. Get notified or order on WhatsApp for quick purchase.</p>
+              </div>
+              <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
+                <a class="btn btn-outline-light btn-lg" href="#footer">Contact</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-5">
+    <div class="container">
+      <div id="categoryContainer" class="d-flex flex-wrap align-items-center mb-4"></div>
+      <div class="row mb-3 align-items-center">
+        <div class="col-8">
+          <h3 id="galleryTitle" class="mb-0">Car Posters</h3>
+          <p class="small  mb-0">Click any poster to order on WhatsApp.</p>
+        </div>
+        <div class="col-4 text-end d-none d-md-block">
+          <small class="">Showing <span id="shownCount">0</span> of <span id="totalCount">0</span></small>
+        </div>
+      </div>
+
+      <div id="posterGrid" class="row g-4"></div>
+
+      <div class="text-center mt-4">
+        <button id="loadMoreBtn" class="btn btn-accent px-4 py-2">Load More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER BANNER -->
+  <section id="orderBanner" class="py-4">
+    <div class="container">
+      <div class="order-banner d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+        <div>
+          <h5 class="mb-1">Order your favorite cinematic posters now!</h5>
+          <p class="mb-0 small ">Quick replies on WhatsApp. We will confirm order and shipping.</p>
+        </div>
+        <div class="text-md-end">
+          <a id="bannerWhatsAppBtn" class="btn btn-accent btn-lg" href="#" target="_blank">Order on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="py-2">© <span id="year"></span> FILMAX.</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
+  <script src="assets/index.js"></script>
+</body>
+</html>
