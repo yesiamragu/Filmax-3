@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FILMAX — Cinematic Posters</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070708;
+      --card:#0f1113;
+      --muted:#9aa0a6;
+      --accent:#c4973f;
+    }
+    html,body{height:100%;background:var(--bg);color:#e6e6e6;font-family:Montserrat,system-ui,Arial;margin:0}
+    .navbar{background:transparent}
+    .brand-img{height:44px}
+    .category-btn{border:1px solid rgba(196,151,63,0.18);color:var(--accent);background:transparent;border-radius:22px;padding:.35rem .9rem;margin:0 .35rem;cursor:pointer;transition:all .18s}
+    .category-btn.active, .category-btn:hover{background:var(--accent);color:#080808}
+    .carousel-item{height:420px;min-height:220px;background-size:cover;background-position:center;position:relative}
+    .carousel-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,2,2,0.45),rgba(2,2,2,0.85));display:flex;align-items:center}
+    .hero-title{font-family:Cinzel,serif;font-size:2rem}
+    .poster-card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);transition:transform .15s}
+    .poster-card:hover{transform:translateY(-6px)}
+    .poster-img{width:100%;height:260px;object-fit:cover;display:block}
+    .price-badge{background:rgba(0,0,0,0.6);padding:.25rem .6rem;border-radius:8px;font-weight:700}
+    .btn-accent{background:linear-gradient(90deg,#d9b06b,#b37f2d);border:0;color:#081012}
+    .order-banner{background:linear-gradient(90deg, rgba(12,12,12,0.9), rgba(20,12,6,0.9));border-top:1px solid rgba(255,255,255,0.03);padding:1.2rem;border-radius:10px}
+    footer{padding:1rem 0;color:var(--muted);text-align:center}
+    @media(max-width:768px){
+      .carousel-item{height:240px}
+      .poster-img{height:170px}
+      .hero-title{font-size:1.4rem}
+      .category-btn{margin:.25rem .25rem .5rem 0}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar py-3">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a class="d-flex align-items-center gap-2" href="#">
+        <img src="https://filmax.in/assets/images/logo-2.svg" alt="FILMAX" class="brand-img"> 
+      </a>
+      <div id="categoryContainer" class="d-flex flex-wrap align-items-center"></div>
+    </div>
+  </nav>
+
+  <!-- CAROUSEL -->
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=2000&q=60')">
+        <div class="carousel-overlay">
+          <div class="container text-white">
+            <div class="row">
+              <div class="col-lg-7">
+                <h2 class="hero-title">Cinematic Posters — Dark & Dramatic</h2>
+                <p class="mb-0">Bring Hollywood vibes home. Matte prints, high contrast, collector's finish.</p>
+              </div>
+              <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
+                <a class="btn btn-accent btn-lg" id="carouselShopBtn" href="#gallery">Shop Posters</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=60')">
+        <div class="carousel-overlay">
+          <div class="container text-white">
+            <div class="row">
+              <div class="col-lg-7">
+                <h2 class="hero-title">Frames & Collections</h2>
+                <p class="mb-0">Curated multi-packs for your living room or gifting moments.</p>
+              </div>
+              <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
+                <a class="btn btn-outline-light btn-lg" id="carouselContactBtn" href="#orderBanner">Order Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image:url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=2000&q=60')">
+        <div class="carousel-overlay">
+          <div class="container text-white">
+            <div class="row">
+              <div class="col-lg-7">
+                <h2 class="hero-title">Limited Edition Drops</h2>
+                <p class="mb-0">Weekly drops. Get notified or order on WhatsApp for quick purchase.</p>
+              </div>
+              <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
+                <a class="btn btn-outline-light btn-lg" href="#footer">Contact</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-5">
+    <div class="container">
+      <div class="row mb-3 align-items-center">
+        <div class="col-8">
+          <h3 id="galleryTitle" class="mb-0">Car Posters</h3>
+          <p class="small text-muted mb-0">Click any poster to order on WhatsApp.</p>
+        </div>
+        <div class="col-4 text-end d-none d-md-block">
+          <small class="text-muted">Showing <span id="shownCount">0</span> of <span id="totalCount">0</span></small>
+        </div>
+      </div>
+
+      <div id="posterGrid" class="row g-4"></div>
+
+      <div class="text-center mt-4">
+        <button id="loadMoreBtn" class="btn btn-accent px-4 py-2">Load More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER BANNER -->
+  <section id="orderBanner" class="py-4">
+    <div class="container">
+      <div class="order-banner d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+        <div>
+          <h5 class="mb-1">Order your favorite cinematic posters now!</h5>
+          <p class="mb-0 small text-muted">Quick replies on WhatsApp. We will confirm order and shipping.</p>
+        </div>
+        <div class="text-md-end">
+          <a id="bannerWhatsAppBtn" class="btn btn-accent btn-lg" href="#" target="_blank">Order on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="py-2">© <span id="year"></span> FILMAX.</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // WhatsApp number (international format without +)
+    const whatsappNumber = '918489391945'; // +91 8489391945
+
+    // Posters data structured by category keys
+    const posters = {
+      car: [
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Speed Legend' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Midnight Racer' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Neon Drift' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Retro Muscle' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Desert Storm' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Carbon Racer' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'City Bullet' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Apex Predator' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Night Rider' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Thunder GT' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 359, name: 'Collector Pack - Car Set' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Velocity' }
+      ],
+
+      bike: [
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Rider X' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Street King' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Iron Throttle' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Midnight Cruiser' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Road Phantom' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Aero Strike' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Torque' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 359, name: 'Bike Tris Pack' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Neon Rider' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Phantom Black' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Road Fury' }
+      ],
+
+      marvel: [
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Avenge Night' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Stark Legacy' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Rogues Gallery' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Night Widow' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Iron Emblem' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Shieldfall' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Loki Silhouette' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Asgard Dawn' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 359, name: 'Heroes Pack' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Vibranium' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Cosmic Edge' }
+      ],
+
+      anime: [
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Samurai Night' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Mecha Core' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Ghost City' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Neo Tokyo' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Spirit Blade' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Shonen Heat' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Moonchild' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Lotus Blade' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 359, name: 'Anime Trio Pack' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Eclipse' },
+        { img: 'https://m.media-amazon.com/images/I/81vRg6RVaFL._AC_UF894,1000_QL80_.jpg', price: 69, name: 'Rising Sun' }
+      ]
+    };
+
+    // State & settings
+    let currentCategory = 'car';
+    let displayedCount = 0;
+    const perLoad = 10;
+
+    // DOM elements
+    const categoryContainer = document.getElementById('categoryContainer');
+    const posterGrid = document.getElementById('posterGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const galleryTitle = document.getElementById('galleryTitle');
+    const shownCountEl = document.getElementById('shownCount');
+    const totalCountEl = document.getElementById('totalCount');
+    const bannerWhatsAppBtn = document.getElementById('bannerWhatsAppBtn');
+
+    // Build category buttons from object keys
+    function initCategories(){
+      categoryContainer.innerHTML = '';
+      const keys = Object.keys(posters);
+      keys.forEach(key => {
+        const btn = document.createElement('button');
+        btn.className = 'category-btn' + (key === currentCategory ? ' active' : '');
+        btn.textContent = capitalize(key);
+        btn.setAttribute('data-cat', key);
+        btn.addEventListener('click', () => selectCategory(key));
+        categoryContainer.appendChild(btn);
+      });
+    }
+
+    // Capitalize helper
+    function capitalize(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+
+    // Render posters for the current category (append next slice)
+    function loadPosters(){
+      const list = posters[currentCategory] || [];
+      const slice = list.slice(displayedCount, displayedCount + perLoad);
+
+      slice.forEach(item => {
+        const col = document.createElement('div');
+        col.className = 'col-6 col-md-4 col-lg-3';
+        col.innerHTML = `
+          <div class="poster-card h-100 d-flex flex-column">
+            <img class="poster-img" src="${item.img}" alt="${escapeHtml(item.name)}">
+            <div class="p-3 d-flex flex-column gap-2 flex-grow-1">
+              <div>
+                <h6 class="mb-1">${escapeHtml(item.name)}</h6>
+                <div class="small text-muted">₹${item.price}</div>
+              </div>
+              <div class="mt-auto d-grid">
+                <button class="btn btn-outline-light btn-sm viewBtn">View & Order</button>
+              </div>
+            </div>
+          </div>
+        `;
+        // add click events (both image and button)
+        col.querySelector('.poster-img').addEventListener('click', () => openWhatsApp(item));
+        col.querySelector('.viewBtn').addEventListener('click', () => openWhatsApp(item));
+
+        posterGrid.appendChild(col);
+      });
+
+      displayedCount += slice.length;
+      updateCounts();
+
+      if(displayedCount >= list.length){
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-block';
+      }
+    }
+
+    // Select a category, reset grid
+    function selectCategory(key){
+      currentCategory = key;
+      displayedCount = 0;
+      posterGrid.innerHTML = '';
+      document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.category-btn').forEach(btn => { if(btn.getAttribute('data-cat') === key) btn.classList.add('active'); });
+      galleryTitle.textContent = capitalize(key) + ' Posters';
+      loadPosters();
+    }
+
+    // Open WhatsApp with prefilled message
+    function openWhatsApp(item){
+      const message = `Hi FILMAX, I want to buy "${item.name}" (₹${item.price}) from ${capitalize(currentCategory)} category.`;
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+
+    // Update shown / total counts
+    function updateCounts(){
+      const list = posters[currentCategory] || [];
+      shownCountEl.textContent = Math.min(displayedCount, list.length);
+      totalCountEl.textContent = list.length;
+    }
+
+    // Escape HTML helper to avoid injection in names
+    function escapeHtml(unsafe){
+      return unsafe.replace(/[&<>"'`=\/]/g, function(s) {
+        return ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;',
+          '/': '&#x2F;',
+          '`': '&#x60;',
+          '=': '&#x3D;'
+        })[s];
+      });
+    }
+
+    // Initialize banner whatsapp button (orders direct with category hint)
+    bannerWhatsAppBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      const message = `Hi FILMAX, I want to order posters from ${capitalize(currentCategory)} category. Please assist.`;
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+
+    // Load more click
+    loadMoreBtn.addEventListener('click', loadPosters);
+
+    // Init
+    document.getElementById('year').textContent = new Date().getFullYear();
+    initCategories();
+    selectCategory(currentCategory); // loads default category
+
+    // Accessibility: keyboard support for category buttons
+    categoryContainer.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter'){
+        const btn = e.target;
+        if(btn && btn.getAttribute && btn.getAttribute('data-cat')) {
+          selectCategory(btn.getAttribute('data-cat'));
+        }
+      }
+    });
+  </script>
+</body>
+</html>
